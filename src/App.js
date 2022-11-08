@@ -1,20 +1,43 @@
+// react
+import * as React from 'react';
+
+// format.js
+import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
+
+
+// styles
 import './App.css';
 
+const messages = {
+    en: {
+        heading: "Welcome to React",
+        subheading: "Welcome to React again",
+        description: "This is the real text"
+    },
+    bg: {
+        heading: "Добре дошъл в реакт",
+        subheading: "Добре дошъл в реакт пак",
+        description: "Това е истинският текст"
+    }
+}
+
+
 function App() {
+
+    const [locale, setLocale] = React.useState("en");
+
     return (
         <div className="App">
             <header className="App-header">
                 <p>
-                    Edit <code>src/App.js</code> and save to reload.
+                    <select defaultChecked={locale}>
+
+                        {['en', 'bg'].map((x) => (
+                            <option key={x}>{x}</option>
+                        ))}
+                    </select>
+
                 </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
             </header>
         </div>
     );

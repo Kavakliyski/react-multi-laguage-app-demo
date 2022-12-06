@@ -1,45 +1,24 @@
-// react
-import * as React from 'react';
-
-// format.js
-import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
+import { Suspense } from "react";
+import "./App.css"
 
 
-// styles
-import './App.css';
+// pages
+import { Home } from "./pages/Home";
+import { Header } from "./pages/Header";
+import { Demo } from "./pages/Demo";
 
-const messages = {
-    en: {
-        heading: "Welcome to React",
-        subheading: "Welcome to React again",
-        description: "This is the real text"
-    },
-    bg: {
-        heading: "Добре дошъл в реакт",
-        subheading: "Добре дошъл в реакт пак",
-        description: "Това е истинският текст"
-    }
-}
-
+import i18n from "./i18n";                  // must have this to work
 
 function App() {
 
-    const [locale, setLocale] = React.useState("en");
-
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    <select defaultChecked={locale}>
 
-                        {['en', 'bg'].map((x) => (
-                            <option key={x}>{x}</option>
-                        ))}
-                    </select>
+        <Suspense fallback={null}>
+            <Header />
+            <Home />
+            <Demo />
+        </Suspense>
 
-                </p>
-            </header>
-        </div>
     );
 }
 

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import i18n from "i18next";
 
+import { Link } from "react-router-dom"
 
 export const Header = () => {
 
@@ -25,7 +26,10 @@ export const Header = () => {
         <>
             <h3>{ count }</h3>
             <button onClick={onClick}>{lang}</button>
-
+            <ol>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/demo">Demo</Link></li>
+            </ol>
         </>
     )
 }

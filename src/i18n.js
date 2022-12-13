@@ -9,7 +9,6 @@ i18n
 	.init({
 		backend: {
 			loadPath: "/assets/i18n/{{ns}}/{{lng}}.json",
-
 		},
 		fallbackLng: "bg",
 		debug: false,
